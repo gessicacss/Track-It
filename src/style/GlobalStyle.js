@@ -53,6 +53,11 @@ p {
     font-size:18px;
     color:#666;
 }
+
+h4 {
+    font-size:18px;
+    font-family:'Lexend Deca';
+}
 `;
 
 export default GlobalStyle;
