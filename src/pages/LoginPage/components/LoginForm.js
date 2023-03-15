@@ -5,13 +5,16 @@ import url from "../../../constants/api";
 import { Form } from "../../../style/FormStyle"
 import { useState, useEffect } from "react";
 import useLocalStorage from '../../../hooks/useLocalStorage';
+import { useContext } from 'react';
+import { AuthContext } from '../../../hooks/authContext';
 
 export default function LoginForm(){
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
-    const [getItemLocalStorage, setItemLocalStorage] = useLocalStorage('token', '');
+    const [getItemLocalStorage, setItemLocalStorage] = useLocalStorage('userData', '');
+    const { setAuthData } = useContext(AuthContext);
 
     function loginUser(e){
         e.preventDefault();
@@ -20,9 +23,9 @@ export default function LoginForm(){
         const body = {email, password};
         axios.post(`${url}auth/login`, body)
         .then(res => {
-            setItemLocalStorage(res.data.token);
+            setAuthData(res.data);
+            setItemLocalStorage(res.data);
             console.log(getItemLocalStorage);
-            console.log(res.data);
             navigate('/hoje');
     })
         .catch(err => alert(err.response.data.message))

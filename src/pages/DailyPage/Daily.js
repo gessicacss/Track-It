@@ -4,10 +4,11 @@ import Header from "../../components/Header"
 import { ContainerPage, Container } from "../../style/PageStyle"
 import DailyHabits from "./components/DailyHabits"
 import useLocalStorage from '../../hooks/useLocalStorage';
+import { useContext } from 'react';
+import { AuthContext } from '../../hooks/authContext';
 
 export default function Daily(){
-    const [token, setToken, removeToken] = useLocalStorage('token');
-    console.log('token', token)
+    const { authData } = useContext(AuthContext);
     return (
         <>
         <Header />

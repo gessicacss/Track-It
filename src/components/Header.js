@@ -1,12 +1,18 @@
 import { Link } from "react-router-dom"
 import styled from "styled-components"
+import useLocalStorage from "../hooks/useLocalStorage";
+
 
 export default function Header(){
+    const [userData] = useLocalStorage('userData');
+    console.log(userData);
+    const { image } = userData;
+
     return (
         <Link to="/">
         <HeaderNav>
             <h2>TrackIt</h2>
-            <img src="https://love.doghero.com.br/wp-content/uploads/2018/12/golden-retriever-1.png" alt="icone do usuário"/>
+            <img src={image} alt="icone do usuário"/>
         </HeaderNav>
         </Link>
     )
