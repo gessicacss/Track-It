@@ -22,5 +22,20 @@ export const Form = styled.form`
     flex-direction: column;
     button {
         height:45px;
+        position:relative;
+        :disabled{
+            opacity: 0.7;
+            cursor:default;
+        }
+        span {
+            display:flex;
+            width: 100%;
+            height:100%;
+            justify-content: center;
+            align-items: center;
+            position:absolute;
+            bottom: 0;
+            right:0;
+    }
     }
 `

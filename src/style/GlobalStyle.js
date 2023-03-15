@@ -37,6 +37,9 @@ img {
         :focus {
             outline:none;
         }
+        :disabled{
+            background-color:#F2F2F2;
+        }
     }
 
 *{
