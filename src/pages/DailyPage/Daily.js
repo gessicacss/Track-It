@@ -4,7 +4,6 @@ import Header from "../../components/Header"
 import { ContainerPage, Container } from "../../style/PageStyle"
 import DailyHabits from "./components/DailyHabits"
 import useLocalStorage from '../../hooks/useLocalStorage';
-import {BsCheckLg} from 'react-icons/bs';
 
 export default function Daily(){
     const [token, setToken, removeToken] = useLocalStorage('token');

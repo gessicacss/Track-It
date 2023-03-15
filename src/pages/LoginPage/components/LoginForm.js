@@ -3,7 +3,7 @@ import { ThreeDots } from "react-loader-spinner";
 import { Link, useNavigate } from "react-router-dom";
 import url from "../../../constants/api";
 import { Form } from "../../../style/FormStyle"
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import useLocalStorage from '../../../hooks/useLocalStorage';
 
 export default function LoginForm(){
@@ -28,6 +28,12 @@ export default function LoginForm(){
         .catch(err => alert(err.response.data.message))
         .finally(() => setLoading(false));
     }
+
+    useEffect(() => {
+        if (getItemLocalStorage) {
+          navigate('/hoje');
+        }
+      }, [getItemLocalStorage, navigate]);
 
     return (
         <>
