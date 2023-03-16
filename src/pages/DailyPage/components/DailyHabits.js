@@ -2,11 +2,11 @@ import styled from "styled-components";
 import { BsCheckLg } from "react-icons/bs";
 import { IconContext } from "react-icons";
 
-export default function DailyHabits() {
+export default function DailyHabits({name}) {
   return (
     <ContainerHabits>
       <LeftSide>
-        <h4>Ler 1 capítulo de livro</h4>
+        <h4>{name}</h4>
         <p>
           Sequência atual: <span>4 dias</span>
         </p>

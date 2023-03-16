@@ -5,13 +5,14 @@ import SignUp from "./pages/SignUpPage/SignUp";
 import Daily from "./pages/DailyPage/Daily";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "./hooks/authContext";
+import Header from "./components/Header";
 
 
 export default function App() {
   return (
-    <main>
       <BrowserRouter>
       <AuthProvider>
+        <main>
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/cadastro" element={<SignUp />} />
@@ -19,8 +20,8 @@ export default function App() {
           <Route path="/hoje" element={<Daily />} />
           <Route path="/historico" element={<History />} />
         </Routes>
+        </main>
         </AuthProvider>
       </BrowserRouter>
-    </main>
   );
 }
