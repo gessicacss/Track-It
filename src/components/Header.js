@@ -1,16 +1,16 @@
 import styled from "styled-components"
 import useLocalStorage from "../hooks/useLocalStorage";
+import { useContext } from "react";
+import { AuthContext } from "../hooks/authContext";
 
 
 export default function Header(){
-    const [userData] = useLocalStorage('userData');
-    // console.log(userData);
-    const { image } = userData;
+    const { authData } = useContext(AuthContext);
 
     return (
         <HeaderNav data-test="header">
             <h2>TrackIt</h2>
-            <img src={image} alt="icone do usuário"/>
+            <img src={authData} alt="icone do usuário"/>
         </HeaderNav>
     )
 }

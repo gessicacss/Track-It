@@ -5,7 +5,7 @@ export default function useLocalStorage(key, defaultItem) {
   
     function getItemLocalStorage() {
       const item = localStorage.getItem(key);
-      return item ? JSON.parse(item) : defaultItem;
+      return JSON.parse(item);
     }
   
     function removeItemLocalStorage() {

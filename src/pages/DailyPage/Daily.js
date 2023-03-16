@@ -7,17 +7,23 @@ import { useEffect, useState } from 'react';
 import url from "../../constants/api"
 import useLocalStorage from "../../hooks/useLocalStorage"
 import axios from "axios"
+import { useContext } from "react";
+import { AuthContext } from "../../hooks/authContext";
+
 
 export default function Daily(){
     const [userData] = useLocalStorage('userData');
     const { token } = userData;
     const [habits, setHabits] = useState([]);
+    const { authData } = useContext(AuthContext);
     const config = {
         headers: {
             Authorization: `Bearer ${token}`
         }
     }
     console.log(config);
+    console.log(userData);
+    console.log(authData);
 
     useEffect(() => {
         axios.get(`${url}habits`, config)
