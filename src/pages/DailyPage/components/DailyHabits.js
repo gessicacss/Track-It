@@ -7,14 +7,14 @@ export default function DailyHabits({name, highest, current}) {
     <ContainerHabits data-test="today-habit-container">
       <LeftSide current={current} highest={highest}>
         <h4 data-test="today-habit-name">{name}</h4>
-        <p>
+        <p data-test="today-habit-sequence">
           Sequência atual: <span>{current} {current > 1 ? 'dias' : 'dia'}</span>
         </p>
-        <p>
+        <p data-test="today-habit-record">
           Seu recorde: <span>{highest} {highest > 1 ? 'dias' : 'dia'}</span>
         </p>
       </LeftSide>
-      <RightSide data-test="toda-habit-check-btn">
+      <RightSide data-test="today-habit-check-btn">
         <IconContext.Provider value={{ color: "white", size: "50px" }}>
           <BsCheckLg />
         </IconContext.Provider>
