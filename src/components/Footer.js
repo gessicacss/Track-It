@@ -7,9 +7,9 @@ export default function Footer(){
     const percentage = 100;
     const navigate = useNavigate();
     return (
-        <ContainerFooter>
-                <Link to="/habitos">Hábitos</Link>
-                <Progress onClick={() => navigate('/hoje')}>
+        <ContainerFooter data-test="menu">
+                <Link to="/habitos" data-test="habit-link">Hábitos</Link>
+                <Progress data-test="today-link" onClick={() => navigate('/hoje')}>
                 <CircularProgressbar
                 text={"Hoje"}
                 value={percentage}
@@ -22,7 +22,7 @@ export default function Footer(){
                 trailColor: 'none'
         })} />
                 </Progress>
-                <Link to="/historico">Historico</Link>
+                <Link to="/historico" data-test="history-link">Historico</Link>
         </ContainerFooter>
     )
 }

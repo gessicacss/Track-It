@@ -4,9 +4,9 @@ import { IconContext } from "react-icons";
 
 export default function DailyHabits({name}) {
   return (
-    <ContainerHabits>
+    <ContainerHabits data-test="today-habit-container">
       <LeftSide>
-        <h4>{name}</h4>
+        <h4 data-test="today-habit-name">{name}</h4>
         <p>
           Sequência atual: <span>4 dias</span>
         </p>
@@ -14,7 +14,7 @@ export default function DailyHabits({name}) {
           Seu recorde: <span>4 dias</span>
         </p>
       </LeftSide>
-      <RightSide>
+      <RightSide data-test="toda-habit-check-btn">
         <IconContext.Provider value={{ color: "white", size: "50px" }}>
           <BsCheckLg />
         </IconContext.Provider>
@@ -47,7 +47,7 @@ const LeftSide = styled.div`
   }
 `;
 
-const RightSide = styled.div`
+const RightSide = styled.button`
   width: 69px;
   height: 69px;
   background-color: #ebebeb;

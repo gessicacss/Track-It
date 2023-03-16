@@ -44,16 +44,18 @@ export default function LoginForm(){
         <input
         type="email"
         value={email}
+        data-test="email-input"
         disabled={loading}
         onChange={e => setEmail(e.target.value)}
         placeholder="email"></input>
         <input
         type="password"
         value={password}
+        data-test="password-input"
         disabled={loading}
         onChange={e => setPassword(e.target.value)}
         placeholder="senha"></input>
-        <button disabled={loading}>{ loading ?
+        <button data-test="login-btn" disabled={loading}>{ loading ?
         <span>
         <ThreeDots 
         height="80" 
@@ -67,7 +69,7 @@ export default function LoginForm(){
         visible={true}
         /></span> : 'Entrar'}</button>
         </Form>
-        <Link to="/cadastro">
+        <Link to="/cadastro" data-test="signup-link">
         <p>Não tem uma conta? Cadastre-se!</p>
         </Link>
         </>

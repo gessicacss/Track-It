@@ -8,7 +8,7 @@ export default function Header(){
     const { image } = userData;
 
     return (
-        <HeaderNav>
+        <HeaderNav data-test="header">
             <h2>TrackIt</h2>
             <img src={image} alt="icone do usuário"/>
         </HeaderNav>

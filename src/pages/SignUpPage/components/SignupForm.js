@@ -28,29 +28,33 @@ export default function SignupForm(){
         <Form onSubmit={signUserUp}>
         <input type="email"
         name="email"
+        data-test="email-input"
         disabled={loading}
         value={email}
         onChange={e => setEmail(e.target.value)}
         placeholder="email"/>
         <input type="password"
         name="password"
+        data-test="password-input"
         disabled={loading}
         value={password}
         onChange={e => setPassword(e.target.value)}
         placeholder="senha"/>
         <input type="text"
         name="name"
+        data-test="user-name-input"
         disabled={loading}
         value={name}
         onChange={e => setName(e.target.value)}
         placeholder="nome"/>
         <input type="url"
         name="picture"
+        data-test="user-image-input"
         disabled={loading}
         value={image}
         onChange={e => setImage(e.target.value)}
         placeholder="foto"/>
-        <button disabled={loading}>{ loading ?
+        <button data-test="signup-btn" disabled={loading}>{ loading ?
         <span>
         <ThreeDots 
         height="80" 
@@ -64,7 +68,7 @@ export default function SignupForm(){
         visible={true}
         /></span> : 'Cadastrar'}</button>
         </Form>
-        <Link to="/">
+        <Link to="/" data-test="login-link">
         <p>Já tem uma conta? Faça login!</p>
         </Link>
         </>

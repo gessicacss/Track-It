@@ -1,5 +1,5 @@
 import axios from "axios"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import styled from "styled-components"
 import Footer from "../../components/Footer"
 import Header from "../../components/Header"
@@ -18,7 +18,7 @@ export default function Habits(){
     const [loading, setLoading] = useState(false);
     const [habitList, setHabitList] = useState([]);
     // console.log(selectDays);
-
+    
     function selectDaysHabit(day){
         const isSelected = selectDays.some((d) => d === day)
         if (isSelected) {
@@ -66,12 +66,12 @@ export default function Habits(){
         <Container>
             <HabitsNav>
             <h3>Meus Hábitos</h3>
-            <button onClick={() => setOpenButton(true)}>+</button>
+            <button data-test="habit-create-btn" onClick={() => setOpenButton(true)}>+</button>
             </HabitsNav>
            <CreateHabits openButton={openButton} loading={loading} setNewHabit={setNewHabit} newHabit={newHabit} submitHabit={submitHabit} selectDaysHabit={selectDaysHabit} selectDays={selectDays} cancelHabit={cancelHabit}/>
-            <p>Você não tem nenhum hábito cadastrado ainda. Adicione um hábito para começar a trackear!</p>
-            {/* {habitList.map((h) => <Habit></Habit>)} */}
-            <HabitsLists />
+            {habitList.length === 0 ? <p>Você não tem nenhum hábito cadastrado ainda. Adicione um hábito para começar a trackear!</p>
+            : 
+            habitList.map((habits) => {<HabitsLists name={habits.name} />})}
         </Container>
         <Footer />
         </ContainerPage>

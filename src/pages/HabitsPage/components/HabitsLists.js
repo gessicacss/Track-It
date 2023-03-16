@@ -1,12 +1,12 @@
 import styled from "styled-components";
 import { BsTrash } from 'react-icons/bs';
 
-export default function HabitsLists(){
+export default function HabitsLists({name}){
     const weekdays = ['D', 'S', 'T', 'Q', 'Q', 'S', 'S'];
     return (
         <Habit>
             <Title>
-                Ler 1 livro por dia
+                {name}
                 <div onClick={() => console.log('oi')}>
                 <BsTrash />
                 </div>

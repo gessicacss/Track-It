@@ -33,8 +33,8 @@ console.log(habits)
         <ContainerPage>
         <Container>
             <ContainerTitle>
-            <h3>Segunda, 17/15</h3>
-            <h4>Nenhum hábito concluído ainda</h4>
+            <h3 data-test="today">Segunda, 17/15</h3>
+            <h4 data-test="today-counter">Nenhum hábito concluído ainda</h4>
             </ContainerTitle>
             {habits.map((habits) => 
             (<DailyHabits 

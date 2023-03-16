@@ -15,11 +15,12 @@ export default function (props) {
 
 return (
   openButton && (
-    <CreateHabits>
+    <CreateHabits data-test="habit-create-container">
       <form onSubmit={submitHabit}>
         <input
           type="text"
           id="habit"
+          data-test="habit-name-input"
           value={newHabit}
           required
           disabled={loading}
@@ -29,6 +30,7 @@ return (
         <DayButton>
           {days.map((days) => (
             <ButtonDay
+              data-test="habit-day"
               isItSelected={selectDays.includes(days.id)}
               key={days.id}
               onClick={() =>
@@ -40,8 +42,8 @@ return (
           ))}
         </DayButton>
         <Buttons>
-          <p onClick={!loading ? cancelHabit : undefined}>Cancelar</p>
-          <button type="submit" disabled={loading}>
+          <p data-test="habit-create-cancel-btn" onClick={!loading ? cancelHabit : undefined}>Cancelar</p>
+          <button data-test="habit-create-save-btn" type="submit" disabled={loading}>
             {loading ? (
               <span>
                 <ThreeDots
