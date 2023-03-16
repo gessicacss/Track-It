@@ -40,9 +40,13 @@ export default function Habits() {
   }, [getNewHabits]);
 
   function deleteHabit(id){
+    const confirm = window.confirm('Deseja apagar esse hábito?');
+    if (confirm) {
     axios.delete(`${url}habits/${id}`, config)
     .then(res => console.log(res.data))
     .catch(err => alert(err.response.data.message));
+    }
+    return;
   }
 
   function selectDaysHabit(day) {
