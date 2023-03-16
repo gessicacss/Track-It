@@ -5,7 +5,6 @@ import SignUp from "./pages/SignUpPage/SignUp";
 import Daily from "./pages/DailyPage/Daily";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "./hooks/authContext";
-import Header from "./components/Header";
 
 
 export default function App() {

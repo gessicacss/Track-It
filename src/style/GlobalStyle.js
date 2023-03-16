@@ -49,13 +49,14 @@ img {
     font-family: 'Lexend Deca';
 }
 
-h3 {
-    color: #126BA5;
-    font-size:23px;
-}
 p {
     font-size:18px;
     color:#666;
+}
+
+h3 {
+    color: #126BA5;
+    font-size:23px;
 }
 
 h4 {
