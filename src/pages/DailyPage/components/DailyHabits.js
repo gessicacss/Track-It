@@ -2,16 +2,16 @@ import styled from "styled-components";
 import { BsCheckLg } from "react-icons/bs";
 import { IconContext } from "react-icons";
 
-export default function DailyHabits({name}) {
+export default function DailyHabits({name, highest, current}) {
   return (
     <ContainerHabits data-test="today-habit-container">
-      <LeftSide>
+      <LeftSide current={current} highest={highest}>
         <h4 data-test="today-habit-name">{name}</h4>
         <p>
-          Sequência atual: <span>4 dias</span>
+          Sequência atual: <span>{current} {current > 1 ? 'dias' : 'dia'}</span>
         </p>
         <p>
-          Seu recorde: <span>4 dias</span>
+          Seu recorde: <span>{highest} {highest > 1 ? 'dias' : 'dia'}</span>
         </p>
       </LeftSide>
       <RightSide data-test="toda-habit-check-btn">
@@ -44,6 +44,9 @@ const LeftSide = styled.div`
   p {
     font-size: 13px;
     line-height: 16px;
+    span {
+      color: ${({current, highest}) => current !== 0 || highest !== 0 ? '#8FC549' : '#666666'}
+    }
   }
 `;
 

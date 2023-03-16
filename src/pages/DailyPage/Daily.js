@@ -21,12 +21,9 @@ export default function Daily(){
             Authorization: `Bearer ${token}`
         }
     }
-    console.log(config);
-    console.log(userData);
-    console.log(authData);
 
     useEffect(() => {
-        axios.get(`${url}habits`, config)
+        axios.get(`${url}habits/today`, config)
         .then(res => setHabits(res.data))
         .catch(err => alert(err.response.data.message))
 }, []);
@@ -44,7 +41,9 @@ console.log(habits)
             </ContainerTitle>
             {habits.map((habits) => 
             (<DailyHabits 
-            key={habits.id} 
+            key={habits.id}
+            current={habits.currentSequence}
+            highest={habits.highestSequence}
             name={habits.name}/>))}
         </Container>
         </ContainerPage>

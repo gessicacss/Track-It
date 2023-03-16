@@ -52,8 +52,10 @@ export default function (props) {
           </DayButtonContainer>
           <Buttons>
             <Cancel
+              type="button"
+              disabled={loading}
               data-test="habit-create-cancel-btn"
-              onClick={!loading ? cancelHabit : undefined}
+              onClick={cancelHabit}
             >
               Cancelar
             </Cancel>
