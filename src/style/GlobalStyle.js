@@ -7,6 +7,18 @@ main {
     display:flex;
     flex-direction: column;
     justify-content: center;
+    font-family: 'Lexend Deca';
+    p {
+    font-size:18px;
+    color:#666;
+    }
+    h3 {
+        color: #126BA5;
+        font-size:23px;
+    }
+    h4 {
+        font-size:18px;
+    }
 }
 button {
     background-color: #52b6ff;
@@ -44,23 +56,8 @@ img {
         }
     }
 
-    p {
-    font-size:18px;
-    color:#666;
-}
-
-h3 {
-    color: #126BA5;
-    font-size:23px;
-}
-
-h4 {
-    font-size:18px;
-}
-
 *{
     box-sizing: border-box;
-    font-family: 'Lexend Deca';
 }`;
 
 export default GlobalStyle;
