@@ -28,10 +28,8 @@ export default function LoginForm() {
     axios
       .post(`${url}auth/login`, body)
       .then((res) => {
-        setAuthData(res.data);
         setItemLocalStorage(res.data);
-        setUserData(res.data);
-        console.log(getItemLocalStorage);
+        setAuthData(res.data.image);
         navigate("/hoje");
       })
       .catch((err) => alert(err.response.data.message))

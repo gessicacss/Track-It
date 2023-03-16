@@ -1,18 +1,18 @@
 import styled from "styled-components";
 import { BsTrash } from 'react-icons/bs';
 
-export default function HabitsLists({name}){
+export default function HabitsLists({name, days, deleteHabit, id}){
     const weekdays = ['D', 'S', 'T', 'Q', 'Q', 'S', 'S'];
     return (
-        <Habit>
+        <Habit data-test="habit-container">
             <Title>
-                {name}
-                <div onClick={() => console.log('oi')}>
+                <p data-test="habit-name">{name}</p>
+                <div data-test="habit-delete-btn" onClick={() => deleteHabit(id)}>
                 <BsTrash />
                 </div>
             </Title>
             <Days>
-            {weekdays.map((days, index) => <MarkedDays key={index}>{days}</MarkedDays>)}
+            {weekdays.map((d, index) => <MarkedDays data-test="habit-day" isInArray={days.includes(index)} key={index}>{d}</MarkedDays>)}
             </Days>
         </Habit>
     )
@@ -32,8 +32,10 @@ const Habit = styled.div`
 const Title = styled.div`
     display:flex;
     justify-content: space-between;
+    p {
     color:#666;
     font-size: 20px;
+    }
 `
 
 const Days = styled.div`
@@ -49,8 +51,8 @@ const MarkedDays = styled.div`
         display:flex;
         justify-content: center;
         align-items: center;
-        color: ${({isItSelected}) => isItSelected ? '#fff' : '#dbdbdb'};
-        background-color:${({isItSelected}) => isItSelected ? '#cfcfcf' : '#fff'};
+        color: ${({isInArray}) => isInArray ? '#fff' : '#dbdbdb'};
+        background-color:${({isInArray}) => isInArray ? '#cfcfcf' : '#fff'};
         font-size:20px;
         cursor:pointer;
 `
