@@ -44,12 +44,7 @@ img {
         }
     }
 
-*{
-    box-sizing: border-box;
-    font-family: 'Lexend Deca';
-}
-
-p {
+    p {
     font-size:18px;
     color:#666;
 }
@@ -62,6 +57,10 @@ h3 {
 h4 {
     font-size:18px;
 }
-`;
+
+*{
+    box-sizing: border-box;
+    font-family: 'Lexend Deca';
+}`;
 
 export default GlobalStyle;
