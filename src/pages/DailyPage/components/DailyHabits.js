@@ -39,21 +39,19 @@ export default function DailyHabits(props) {
         <h4 data-test="today-habit-name">{habit.name}</h4>
         <p data-test="today-habit-sequence">
           Sequência atual:
-          <span>
+          <Span done={habit.done}>
             {" "}
             {habit.currentSequence} {habit.currentSequence > 1 ? "dias" : "dia"}
-          </span>
+          </Span>
         </p>
         <p data-test="today-habit-record">
           Seu recorde:
-          <Sequence
-            current={habit.highestSequence}
-            highest={habit.highestSequence}
-            done={habit.done}
+          <Span
+          done={habit.done && habit.highestSequence === habit.currentSequence}
           >
             {" "}
             {habit.highestSequence} {habit.highestSequence > 1 ? "dias" : "dia"}
-          </Sequence>
+          </Span>
         </p>
       </LeftSide>
       <RightSide
@@ -92,15 +90,12 @@ const LeftSide = styled.div`
   p {
     font-size: 13px;
     line-height: 16px;
-    span:first-child {
-      color: ${({ done }) => (done ? "#8FC549" : "#666666")};
-    }
   }
 `;
 
-const Sequence = styled.span`
-  color: ${({ highest, current, done }) =>
-    done && highest >= current ? "#8FC549" : "#666666"};
+const Span = styled.span`
+  color: ${( { done }) =>
+    done ? "#8FC549" : "#666666"};
 `;
 
 const RightSide = styled.button`
