@@ -107,6 +107,6 @@ const RightSide = styled.button`
   ${({ done }) => !done && "border: 1px solid #e7e7e7;"}
   border-radius: 5px;
   display: flex;
-  align-items: center;
+
   justify-content: center;
 `;
