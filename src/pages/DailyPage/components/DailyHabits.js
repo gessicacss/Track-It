@@ -71,7 +71,7 @@ export default function DailyHabits(props) {
 
 const ContainerHabits = styled.div`
   width: 100%;
-  height: 94px;
+  min-height: 94px;
   background-color: #fff;
   border-radius: 5px;
   display: flex;
