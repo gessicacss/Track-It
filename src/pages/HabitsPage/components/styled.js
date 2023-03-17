@@ -44,33 +44,33 @@ export const Buttons = styled.div`
 `;
 
 export const Cancel = styled.button`
-    background-color: #fff;
-    color: #52b6ff;
-    font-size: 16px;
-    cursor: pointer;
-    :disabled{
-      cursor:default;
-      opacity: 0.7;
-    }
-`
+  background-color: #fff;
+  color: #52b6ff;
+  font-size: 16px;
+  cursor: pointer;
+  :disabled {
+    cursor: default;
+    opacity: 0.7;
+  }
+`;
 
-export const SendButton = styled.button` 
-    width: 84px;
-    height: 35px;
-    font-size: 16px;
-    position: relative;
-    :disabled {
-      cursor: default;
-      opacity: 0.7;
-    }
-    span {
-      display: flex;
-      width: 100%;
-      height: 100%;
-      justify-content: center;
-      align-items: center;
-      position: absolute;
-      bottom: 0;
-      right: 0;
-    }
-`
+export const SendButton = styled.button`
+  width: 84px;
+  height: 35px;
+  font-size: 16px;
+  position: relative;
+  :disabled {
+    cursor: default;
+    opacity: 0.7;
+  }
+  span {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+`;

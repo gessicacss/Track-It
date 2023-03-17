@@ -1,6 +1,13 @@
 import styled from "styled-components";
 import { ThreeDots } from "react-loader-spinner";
-import { CreateHabits, DayButtonContainer, ButtonDay, Buttons, SendButton, Cancel } from "./styled";
+import {
+  CreateHabits,
+  DayButtonContainer,
+  ButtonDay,
+  Buttons,
+  SendButton,
+  Cancel,
+} from "./styled";
 
 export default function (props) {
   const {
