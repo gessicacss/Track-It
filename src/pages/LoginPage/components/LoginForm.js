@@ -18,7 +18,6 @@ export default function LoginForm() {
     ""
   );
   const { setAuthData } = useContext(AuthContext);
-  const [userData, setUserData] = useState();
 
   function loginUser(e) {
     e.preventDefault();

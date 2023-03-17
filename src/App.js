@@ -5,12 +5,15 @@ import SignUp from "./pages/SignUpPage/SignUp";
 import Daily from "./pages/DailyPage/Daily";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "./hooks/authContext";
+import { PercentageProvider } from "./hooks/percentageContext";
 
 
 export default function App() {
   return (
       <BrowserRouter>
       <AuthProvider>
+      <PercentageProvider>
+
         <main>
         <Routes>
           <Route path="/" element={<Login />} />
@@ -20,6 +23,7 @@ export default function App() {
           <Route path="/historico" element={<History />} />
         </Routes>
         </main>
+        </PercentageProvider>
         </AuthProvider>
       </BrowserRouter>
   );

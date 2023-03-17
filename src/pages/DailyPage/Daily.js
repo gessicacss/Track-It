@@ -8,27 +8,47 @@ import url from "../../constants/api"
 import useLocalStorage from "../../hooks/useLocalStorage"
 import axios from "axios"
 import { useContext } from "react";
-import { AuthContext } from "../../hooks/authContext";
+import { PercentageContext } from "../../hooks/percentageContext";
+import { formatWeekday } from "../../components/formatWeekday";
 
 
 export default function Daily(){
+    const { percentage, setPercentage } = useContext(PercentageContext);
+    const weekday = formatWeekday();
     const [userData] = useLocalStorage('userData');
     const { token } = userData;
     const [habits, setHabits] = useState([]);
-    const { authData } = useContext(AuthContext);
     const config = {
         headers: {
             Authorization: `Bearer ${token}`
         }
     }
 
-    useEffect(() => {
-        axios.get(`${url}habits/today`, config)
-        .then(res => setHabits(res.data))
-        .catch(err => alert(err.response.data.message))
-}, []);
+async function getHabits() {
+  try {
+    const response = await axios.get(`${url}habits/today`, config);
+    setHabits(response.data);
+  } catch (err) {
+    alert(err.response.data.message);
+  }
+}
 
-console.log(habits)
+    useEffect(() => {
+        getHabits();
+}, [habits.done]);
+
+  useEffect(() => {
+    let newDone = 0;
+    let totalHabits = 0;
+    habits.forEach(habit => {
+        totalHabits++;
+        if (habit.done){
+            newDone++;
+        }
+        let count = newDone/totalHabits*100;
+        setPercentage(count);
+    })
+  }, [habits])
 
     return (
         <>
@@ -36,18 +56,17 @@ console.log(habits)
         <ContainerPage>
         <Container>
             <ContainerTitle>
-            <h3 data-test="today">Segunda, 17/15</h3>
-            <h4 data-test="today-counter">Nenhum hábito concluído ainda</h4>
+            <h3 data-test="today">{weekday}</h3>
+            <h4 data-test="today-counter">{Math.round(percentage) === 0 || habits.length === 0 ? 'Nenhum hábito concluído ainda' : `${Math.round(percentage)}% dos hábitos concluídos`}</h4>
             </ContainerTitle>
-            {habits.map((habits) => 
+            {habits.map((habit, id) => 
             (<DailyHabits 
-            key={habits.id}
-            current={habits.currentSequence}
-            highest={habits.highestSequence}
-            name={habits.name}/>))}
+            key={id}
+            getHabits={getHabits}
+            habit={habit}/>))}
         </Container>
         </ContainerPage>
-        <Footer />
+        <Footer percentage={percentage}/>
         </>
     )
 }

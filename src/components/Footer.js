@@ -2,9 +2,11 @@ import { Link, useNavigate } from "react-router-dom"
 import styled from "styled-components"
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
+import { useContext } from "react";
+import { PercentageContext } from "../hooks/percentageContext";
 
 export default function Footer(){
-    const percentage = 100;
+    const { percentage } = useContext(PercentageContext);
     const navigate = useNavigate();
     return (
         <ContainerFooter data-test="menu">
