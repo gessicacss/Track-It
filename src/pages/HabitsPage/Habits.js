@@ -17,7 +17,6 @@ export default function Habits() {
   const { token } = userData;
   const [loading, setLoading] = useState(false);
   const [habitList, setHabitList] = useState([]);
-  // console.log(selectDays);
 
   const config = {
     headers: {
@@ -43,7 +42,7 @@ export default function Habits() {
     const confirm = window.confirm('Deseja apagar esse hábito?');
     if (confirm) {
     axios.delete(`${url}habits/${id}`, config)
-    .then(res => console.log(res.data))
+    .then(res => console.log('deletado'))
     .catch(err => alert(err.response.data.message));
     }
     return;

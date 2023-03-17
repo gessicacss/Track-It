@@ -28,7 +28,7 @@ export default function HabitsLists({ name, days, deleteHabit, id }) {
 
 const Habit = styled.div`
   width: 100%;
-  height: 91px;
+  min-height: 91px;
   padding: 15px;
   background-color: #fff;
   display: flex;

@@ -6,7 +6,7 @@ export const ContainerPage = styled.div`
   min-height: 100vh;
 `;
 export const Container = styled.div`
-  padding: 100px 30px 120px 15px;
+  padding: 100px 10px 120px 10px;
   display: flex;
   flex-direction: column;
   gap: 20px;
