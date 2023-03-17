@@ -44,7 +44,7 @@ export default function Daily() {
       if (habit.done) {
         newDone++;
       }
-      let count = (newDone / totalHabits) * 100;
+      const count = (newDone / totalHabits) * 100;
       setPercentage(count);
     });
   }, [habits]);

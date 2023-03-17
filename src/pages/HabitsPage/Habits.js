@@ -29,7 +29,6 @@ export default function Habits() {
       .get(`${url}habits`, config)
       .then((res) => {
         setHabitList(res.data);
-        // console.log(res.data);
       })
       .catch((err) => alert(err.response.data.message));
   }
@@ -42,7 +41,7 @@ export default function Habits() {
     const confirm = window.confirm('Deseja apagar esse hábito?');
     if (confirm) {
     axios.delete(`${url}habits/${id}`, config)
-    .then(res => console.log('deletado'))
+    .then(() => console.log('deletado'))
     .catch(err => alert(err.response.data.message));
     }
     return;

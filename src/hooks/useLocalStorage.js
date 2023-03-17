@@ -1,4 +1,4 @@
-export default function useLocalStorage(key, defaultItem) {
+export default function useLocalStorage(key) {
   function setItemLocalStorage(value) {
     localStorage.setItem(key, JSON.stringify(value));
   }

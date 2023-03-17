@@ -58,6 +58,8 @@ img {
 
 *{
     box-sizing: border-box;
+    font-family: 'Lexend Deca';
+
 }`;
 
 export default GlobalStyle;
