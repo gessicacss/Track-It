@@ -55,7 +55,7 @@ async function getHabits() {
         <Header />
         <ContainerPage>
         <Container>
-            <ContainerTitle>
+            <ContainerTitle percentage={percentage > 0}>
             <h3 data-test="today">{weekday}</h3>
             <h4 data-test="today-counter">{Math.round(percentage) === 0 || habits.length === 0 ? 'Nenhum hábito concluído ainda' : `${Math.round(percentage)}% dos hábitos concluídos`}</h4>
             </ContainerTitle>
@@ -77,6 +77,6 @@ const ContainerTitle = styled.div`
     gap:5px;
     margin-bottom: 10px;
     h4 {
-        color: #bababa;
+        color: ${({percentage}) => percentage ? '#8FC549': '#bababa' };
     }
 `
