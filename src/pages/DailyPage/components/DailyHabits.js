@@ -35,11 +35,7 @@ export default function DailyHabits(props) {
 
   return (
     <ContainerHabits data-test="today-habit-container">
-      <LeftSide
-        current={habit.highestSequence}
-        highest={habit.highestSequence}
-        done={habit.done}
-      >
+      <LeftSide done={habit.done}>
         <h4 data-test="today-habit-name">{habit.name}</h4>
         <p data-test="today-habit-sequence">
           Sequência atual:
@@ -50,10 +46,14 @@ export default function DailyHabits(props) {
         </p>
         <p data-test="today-habit-record">
           Seu recorde:
-          <span>
+          <Sequence
+            current={habit.highestSequence}
+            highest={habit.highestSequence}
+            done={habit.done}
+          >
             {" "}
             {habit.highestSequence} {habit.highestSequence > 1 ? "dias" : "dia"}
-          </span>
+          </Sequence>
         </p>
       </LeftSide>
       <RightSide
@@ -93,11 +93,12 @@ const LeftSide = styled.div`
     span:first-child {
       color: ${({ done }) => (done ? "#8FC549" : "#666666")};
     }
-    span:nth(2)-child {
-      color: ${({ highest, current, done }) =>
-        done && highest > current ? "#8FC549" : "#666666"};
-    }
   }
+`;
+
+const Sequence = styled.span`
+  color: ${({ highest, current, done }) =>
+    done && highest >= current ? "#8FC549" : "#666666"};
 `;
 
 const RightSide = styled.button`
