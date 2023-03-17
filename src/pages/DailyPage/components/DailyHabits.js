@@ -86,6 +86,8 @@ const LeftSide = styled.div`
     color: #666;
     line-height: 25px;
     margin-bottom: 5px;
+    word-break: break-all;
+    margin-right: 10px;
   }
   p {
     font-size: 13px;
@@ -102,7 +104,7 @@ const Sequence = styled.span`
 `;
 
 const RightSide = styled.button`
-  width: 69px;
+  min-width: 69px;
   height: 69px;
   background-color: ${({ done }) => (done ? "#8FC549" : "#ebebeb")};
   ${({ done }) => !done && "border: 1px solid #e7e7e7;"}

@@ -43,6 +43,8 @@ const Title = styled.div`
   p {
     color: #666;
     font-size: 20px;
+    word-break: break-all;
+    margin-right:10px;
   }
 `;
 
