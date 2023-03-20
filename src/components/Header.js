@@ -5,11 +5,12 @@ import { AuthContext } from "../hooks/authContext";
 
 export default function Header() {
   const { authData } = useContext(AuthContext);
+  const {image} = authData;
 
   return (
     <HeaderNav data-test="header">
       <h2>TrackIt</h2>
-      <img src={authData} alt="icone do usuário" />
+      <img src={image} alt="icone do usuário" />
     </HeaderNav>
   );
 }

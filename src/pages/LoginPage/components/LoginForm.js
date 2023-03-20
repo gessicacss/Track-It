@@ -28,7 +28,7 @@ export default function LoginForm() {
       .post(`${url}auth/login`, body)
       .then((res) => {
         setItemLocalStorage(res.data);
-        setAuthData(res.data.image);
+        setAuthData(res.data);
         navigate("/hoje");
       })
       .catch((err) => alert(err.response.data.message))

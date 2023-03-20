@@ -4,7 +4,9 @@ import styled from "styled-components";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 import url from "../../constants/api";
-import useLocalStorage from "../../hooks/useLocalStorage";
+import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../../hooks/authContext";
 import { ContainerPage, Container } from "../../style/PageStyle";
 import CreateHabits from "./components/CreateHabits";
 import HabitsLists from "./components/HabitsLists";
@@ -13,11 +15,11 @@ export default function Habits() {
   const [openButton, setOpenButton] = useState(false);
   const [newHabit, setNewHabit] = useState("");
   const [selectDays, setSelectDays] = useState([]);
-  const [userData] = useLocalStorage("userData");
-  const { token } = userData;
+  const { authData } = useContext(AuthContext);
+  const { token } = authData;
   const [loading, setLoading] = useState(false);
   const [habitList, setHabitList] = useState([]);
-
+  const navigate = useNavigate();
   const config = {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -25,12 +27,18 @@ export default function Habits() {
   };
 
   function getNewHabits() {
+    if (token) {
     axios
       .get(`${url}habits`, config)
       .then((res) => {
         setHabitList(res.data);
       })
-      .catch((err) => alert(err.response.data.message));
+      .catch((err) => {
+        alert(err.response.data.message)
+      })}
+      else{
+        navigate('/');
+      }
   }
 
   useEffect(() => {

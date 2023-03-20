@@ -10,7 +10,7 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     const storedData = getItemLocalStorage;
     if (storedData) {
-      setAuthData(storedData.image);
+      setAuthData(storedData);
     }
   }, []);
 
