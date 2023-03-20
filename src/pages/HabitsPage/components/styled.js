@@ -59,6 +59,7 @@ export const SendButton = styled.button`
   height: 35px;
   font-size: 16px;
   position: relative;
+  color:#fff;
   :disabled {
     cursor: default;
     opacity: 0.7;

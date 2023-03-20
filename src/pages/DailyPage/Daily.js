@@ -10,16 +10,13 @@ import axios from "axios";
 import { useContext } from "react";
 import { PercentageContext } from "../../hooks/percentageContext";
 import { formatWeekday } from "../../components/formatWeekday";
-import { AuthContext } from "../../hooks/authContext";
-import { useNavigate } from "react-router-dom";
 
 export default function Daily() {
   const { percentage, setPercentage } = useContext(PercentageContext);
-  const { authData } = useContext(AuthContext);
   const weekday = formatWeekday();
-  const { token } = authData;
+  const [userData] = useLocalStorage("userData");
+  const { token } = userData;
   const [habits, setHabits] = useState([]);
-  const navigate = useNavigate();
   const config = {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -27,16 +24,11 @@ export default function Daily() {
   };
 
   async function getHabits() {
-    if (token) {
     try {
       const response = await axios.get(`${url}habits/today`, config);
       setHabits(response.data);
-      console.log(authData);
     } catch (err) {
       alert(err.response.data.message);
-    }}
-    else {
-      navigate('/');
     }
   }
 

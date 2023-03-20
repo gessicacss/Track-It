@@ -23,6 +23,7 @@ export const Form = styled.form`
   button {
     height: 45px;
     position: relative;
+    color:#fff;
     :disabled {
       opacity: 0.7;
       cursor: default;

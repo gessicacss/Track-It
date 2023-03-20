@@ -27,7 +27,6 @@ button {
     font-weight:400;
     text-align: center;
     cursor:pointer;
-    color:#fff;
     font-family: 'Lexend Deca', sans-serif;
     font-size:20px;
     
